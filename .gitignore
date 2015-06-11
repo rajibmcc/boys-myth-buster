@@ -2,6 +2,13 @@
 bin/
 bin-debug/
 bin-release/
+html-template/
+
+# Asset and artwork files
+assets/
+certificates/
+docs/
+flash/
 
 # Other files and folders
 .settings/
