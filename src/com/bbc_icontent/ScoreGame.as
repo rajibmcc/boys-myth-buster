@@ -7,7 +7,7 @@
 	{
 		private static var SCORE_LEVELS:Dictionary;
 		private static var sharedObjectScore:SharedObject;
-		private static var soId:String = 'gpth_001';
+		private static var soId:String = 'bmb_001';
 		public static function initializeScore():void{	
 			sharedObjectScore = SharedObject.getLocal(soId);
 			if(sharedObjectScore.data.score != undefined && 1>5){
@@ -17,13 +17,18 @@
 			else{
 				SCORE_LEVELS = new Dictionary();
 				// score limit is predefined.
-				SCORE_LEVELS[InfoGame.LEVEL_ALL] = new ScoreLevel(0, 46);
-				SCORE_LEVELS[InfoGame.LEVEL_CINEMA] = new ScoreLevel(0, 3);
-				SCORE_LEVELS[InfoGame.LEVEL_FIRMFIELD] = new ScoreLevel(0, 9);
-				SCORE_LEVELS[InfoGame.LEVEL_JUNGLE] = new ScoreLevel(0, 4);
-				SCORE_LEVELS[InfoGame.LEVEL_MARKET] = new ScoreLevel(0, 16);
-				SCORE_LEVELS[InfoGame.LEVEL_PLAYFIELD] = new ScoreLevel(0, 3);
-				SCORE_LEVELS[InfoGame.LEVEL_RIVER] = new ScoreLevel(0, 6);
+				SCORE_LEVELS[InfoGame.LEVEL_ROOM_DOWNSTAIRS] = new ScoreLevel(0, 3);
+				SCORE_LEVELS[InfoGame.LEVEL_BEDROOM] = new ScoreLevel(0, 9);
+				SCORE_LEVELS[InfoGame.LEVEL_STAIRS] = new ScoreLevel(0, 4);
+				SCORE_LEVELS[InfoGame.LEVEL_KITCHEN] = new ScoreLevel(0, 16);
+				SCORE_LEVELS[InfoGame.LEVEL_ROOMFLOOR] = new ScoreLevel(0, 3);
+				
+				var totalScore:int = 0;
+				for(var key:Object in SCORE_LEVELS){
+					totalScore += ScoreLevel(SCORE_LEVELS[key]).scoreLimit;
+				}
+				trace('Calculated TOTAL SCORE : '+totalScore);
+				SCORE_LEVELS[InfoGame.LEVEL_ALL] = new ScoreLevel(0, totalScore);
 				trace('SAVING for the first TIME');
 				saveScore();
 			}			

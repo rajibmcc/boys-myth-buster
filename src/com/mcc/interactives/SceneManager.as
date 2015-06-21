@@ -28,7 +28,7 @@
 			
 			//First movie clip with visibility = true;
 			_sceneCurrent = args[0] as MovieClip;
-			_sceneCurrent.stop();			
+			_sceneCurrent.stop();
 			_scenes.push(_sceneCurrent);
 			
 			for(var i:int = 1; i< _indexLimit; i++){
@@ -95,7 +95,16 @@
 		private function onEnterHandler(e:Event):void{
 			if(_sceneCurrent.currentFrame == _sceneCurrent.totalFrames){				
 				_sceneCurrent.stop();
-				this.dispatchEvent(new SceneEvents(SceneEvents.PLAY_COMPLETE));
+				_sceneCurrent.removeEventListener(Event.ENTER_FRAME, onEnterHandler);
+				if(_indexScene+1 == _indexLimit){
+					trace("********** Last Movie PLAY COMPLETE***************");
+					this.dispatchEvent(new SceneEvents(SceneEvents.PLAY_ALL_COMPLETE));
+				}
+				else{
+					trace("Movie PLAY COMPLETE");
+					this.dispatchEvent(new SceneEvents(SceneEvents.PLAY_COMPLETE));
+				}
+				
 				if(playOneAfterAnother){
 					nextScene();
 				}

@@ -1,5 +1,14 @@
 ﻿package  com.bbc_icontent{
+	import com.bbc_icontent.events.LevelEvents;
+	
 	import flash.display.Sprite;
+	
+	//CHEAT----------- BEGIN
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.ui.Keyboard;
+
+	//CHEAT----------- END
 		
 	public class Screen extends Sprite{
 		public var _loadablepath:String = 'no_external';
@@ -15,7 +24,39 @@
 		
 		public function Screen() {
 			super();
+			
+			//CHEAT
+			addEventListener(Event.ADDED_TO_STAGE, cheatEnable);
+			//
 		}
+		
+		private function cheatEnable(e:Event):void{
+			removeEventListener(Event.ADDED_TO_STAGE, cheatEnable);
+			stage.addEventListener(KeyboardEvent.KEY_UP, cheat);
+		}
+		
+		private function cheat(e:KeyboardEvent):void{
+			switch(e.keyCode)
+			{
+				case Keyboard.N:
+				{
+					this.dispatchEvent(new LevelEvents(LevelEvents.LEVEL_NEXT));
+					break;
+				}
+					
+				case Keyboard.P:
+				{
+					this.dispatchEvent(new LevelEvents(LevelEvents.LEVEL_PREVIOUS));
+					break;
+				}
+					
+				default:
+				{
+					break;
+				}
+			}
+		}
+		//CHEAT----------- END
 
 		public function get scoreMax():int
 		{
@@ -27,7 +68,7 @@
 			_scoreMax = value;
 		}
 
-		public function initializeLevel():void{
+		public function initialize():void{
 			
 		}
 		

@@ -37,13 +37,11 @@ package com.bbc_icontent.screens
 		}
 		
 		override public function hide():void{
-			textLine.addEventListener(TextLineEvents.TEXTLINE_SKIP, prepareLevel);
-			textLine.addEventListener(TextLineEvents.TEXTLINE_END, prepareLevel);
+			textLine.removeEventListener(TextLineEvents.TEXTLINE_DISAPPEARED, runStartAnims);
 		}
 		
 		override public function destroy():void{
-			textLine.addEventListener(TextLineEvents.TEXTLINE_SKIP, prepareLevel);
-			textLine.addEventListener(TextLineEvents.TEXTLINE_END, prepareLevel);
+			textLine.removeEventListener(TextLineEvents.TEXTLINE_DISAPPEARED, runStartAnims);
 		}
 		
 		private function starButtonEventHandler(e:MouseEvent):void{
@@ -52,32 +50,23 @@ package com.bbc_icontent.screens
 			button_start.removeEventListener(MouseEvent.CLICK, starButtonEventHandler);
 			
 			textLine.appear();
-			textLine.addEventListener(TextLineEvents.TEXTLINE_SKIP, prepareLevel);
-			textLine.addEventListener(TextLineEvents.TEXTLINE_END, prepareLevel);
-		}
-		
-		private function prepareLevel(e:TextLineEvents):void{
-			//Fly some bats near window
-			textLine.disAppear();
 			textLine.addEventListener(TextLineEvents.TEXTLINE_DISAPPEARED, runStartAnims);
+			textLine.addEventListener(TextLineEvents.TEXTLINE_END, runStartAnims);
 		}
+
 		
 		private function runStartAnims(e:TextLineEvents):void{
-			//window.visible = false;
+			if(e.type == TextLineEvents.TEXTLINE_END) {
+				textLine.disAppear();
+				return;
+			}
 			TransitionHelper.fadeOut(window, .3);
 			DelayCall.call(homeScreenDone, 1);
 		}
 		
 		private function homeScreenDone():void{
+			trace("DISPATCHING "+LevelEvents.LEVEL_START);
 			this.dispatchEvent(new LevelEvents(LevelEvents.LEVEL_START));
-		}
-		
-		private function starRoll():void{
-			//var tweenNear:TweenMax = new TweenMax(bgNear, .5,{x: 527, y: 452, scaleX:1.54, scaleY:1.54});
-			//var tweenFar:TweenMax =  new TweenMax(bgFar, 1,{x: 224, y: 588, scaleX:1.66, scaleY:1.66});
-			
-			//tweenNear.play();
-			//tweenFar.play();
 		}
 	}
 }

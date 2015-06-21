@@ -1,4 +1,4 @@
-package com.mcc.interactives.component
+﻿package com.mcc.interactives.component
 {
 	import com.mcc.interactives.IEvents.TextLineEvents;
 	
@@ -35,6 +35,11 @@ package com.mcc.interactives.component
 			_syncPoints = new Vector.<int>();
 		}
 		
+		/**
+		 * 
+		 * @param syncPointsArray Int Frame number that fires sync Event
+		 * 
+		 */		
 		public function set syncPoints(syncPointsArray:Array):void{
 			for(var i:int = 0; i<syncPointsArray.length; i++){
 				_syncPoints.push(syncPointsArray[i] as int);
@@ -70,11 +75,10 @@ package com.mcc.interactives.component
 					}					
 					break;
 				case button_skip:
+					outAnim(this);
 					this.dispatchEvent(new TextLineEvents(TextLineEvents.TEXTLINE_SKIP));
 					break;
-			}
-			
-			
+			}			
 		}
 		
 		private function fireSyncEvent():void{
