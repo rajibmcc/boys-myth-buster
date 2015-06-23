@@ -21,7 +21,7 @@
 				SCORE_LEVELS[InfoGame.LEVEL_BEDROOM] = new ScoreLevel(0, 9);
 				SCORE_LEVELS[InfoGame.LEVEL_STAIRS] = new ScoreLevel(0, 4);
 				SCORE_LEVELS[InfoGame.LEVEL_KITCHEN] = new ScoreLevel(0, 16);
-				SCORE_LEVELS[InfoGame.LEVEL_ROOMFLOOR] = new ScoreLevel(0, 3);
+				SCORE_LEVELS[InfoGame.LEVEL_ROOMFLOOR] = new ScoreLevel(0, 0);
 				
 				var totalScore:int = 0;
 				for(var key:Object in SCORE_LEVELS){
