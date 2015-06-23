@@ -5,6 +5,7 @@
 
 	public class ScoreGame
 	{
+		//change as master branch from rajib
 		private static var SCORE_LEVELS:Dictionary;
 		private static var sharedObjectScore:SharedObject;
 		private static var soId:String = 'bmb_001';
