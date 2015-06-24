@@ -52,7 +52,7 @@
 			Bats=new Vector.<MovieClip>();
 			
 			_startInsClip= startInsClip as ScreenGameStart;
-			_startInsClip.txt.text = "‡hfv‡e ‡Lj‡Z n‡e: ev`yo¸‡jv‡K Rv‡j e›`x Ki‡Z G¸‡jvi Ici wK¬K Ki‡Z n‡e|";		
+			_startInsClip.txt.text = "ev`yo¸‡jv‡K Rv‡j e›`x Ki‡Z G¸‡jvi Ici wK¬K Ki‡Z n‡e|";		
 			_startInsClip.visible = false;
 			
 			_textline = textline as TextLine;
