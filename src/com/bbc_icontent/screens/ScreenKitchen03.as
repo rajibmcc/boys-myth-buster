@@ -71,9 +71,9 @@
 			matchablesRight.push(cr1, cr2, cr3);
 
 			//data array;
-			dataArr.push("G‡KK R‡bi cyi“lv‡½i AvKvi-AvK…wZ "+separetor+"G‡KK iKg n‡Z cv‡i| Z‡e G Kvi‡Y kvixwiK m¤c‡K©i †¶‡Î †Kv‡bv mgm¨v nq bv|",
-			 "KviI KviI cyi“lv½ GKUz evuKv‡bv n‡Z cv‡i "+separetor+"hv †Kej cyi“lv½ DwÌZ n‡jB †evSv hvq| Z‡e GB evuKv nIqvi e¨vcviUv ¯^vfvweK|", 
-			 "mš—vb Rb¥`v‡bi m¶gZv ev De©iZv Av‡Q wK †bB "+separetor+"Zv cyi“lv‡½i AvKvi-AvK…wZi Ici wbf©i K‡i bv|");
+			dataArr.push("G‡KK R‡bi cyiælv‡½i AvKvi-AvK…wZ"+separetor+"G‡KK iKg n‡Z cv‡i| Z‡e G Kvi‡Y kvixwiK m¤c‡K©i †¶‡Î †Kv‡bv mgm¨v nq bv|",
+ 						"KviI KviI cyiælv½ GKUz evuKv‡bv n‡Z cv‡i "+separetor+"hv †Kej cyiælv½ DwÌZ n‡jB †evSv hvq| Z‡e GB evuKv nIqvi e¨vcviUv ¯^vfvweK|", 
+ 						"mšÍvb Rb¥`v‡bi m¶gZv ev De©iZv Av‡Q wK †bB "+separetor+"Zv cyiælv‡½i AvKvi-AvK…wZi Ici wbf©i K‡i bv|");
 
 
 			matchables=new Vector.<MovieClip>();
