@@ -40,11 +40,11 @@
 			addChild(homeScreen);
 			
 			homeScreen.show();
-			homeScreen.addEventListener(LevelEvents.LEVEL_START, startLevelFromBegining);			
+			homeScreen.addEventListener(LevelEvents.LEVEL_START, startLevelFromBegining);
 		}
 		
 		private function startLevelFromBegining(e:LevelEvents):void{
-			homeScreen.hide();
+			//homeScreen.hide();
 			startNextLevel();
 		}	
 		
